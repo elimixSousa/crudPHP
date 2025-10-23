@@ -7,7 +7,8 @@ try{
     $stmt = $pdo-> query("SELECT id, title, description, date_creation FROM tasks ORDER BY date_creation DESC");
 
     // busca todas as tarefas como um array associativo
-    $tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //fetchAll() é um método do objeto de declaração que busca todos os registros retornados pela consulta
+    $tasks = $stmt->fetchAll(PDO::FETCH_ASSOC); //
 
 
 } catch(PDOException $e){
@@ -39,13 +40,18 @@ try{
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if(count($tasks) > 0): ?>
+                    <!-- estrutura de controle if/else que verifica se há alguma
+                     tarefa para exibir -->
+                    <?php if(count($tasks) > 0): ?> 
                         <?php foreach ($tasks as $task): ?>
                         <tr>
                             <td><?= htmlspecialchars($task['title']) ?></td>
                             <td><?= htmlspecialchars($task['description']) ?></td>
-                            <td><?= date('d/m/Y H:i:s', strtotime($task['date_creation'])) ?></td>
+                            <!-- agora formato a data que vem do Banco de Dados
+                             para um formato mais amigável -->
+                            <td><?= date('d/m/Y - H:i:s', strtotime($task['date_creation'])) ?></td>
                             <td class="actions">
+                                <!-- crio os links para a página de edição e exclusão -->
                                 <a href="edit.php?id=<?= $task['id'] ?>" class="btn-edit">Editar</a>
                                 <a href="delete.php?id=<?= $task['id'] ?>" class="btn-delete" onclick="return confirm('Tem certeza que deseja excluir esta tarefa?');">Excluir</a>
                             </td>
@@ -60,4 +66,5 @@ try{
             </table>
         </div>
     </body>
+    </html>
 

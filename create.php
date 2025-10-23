@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         <div class="container">
             <h1>Adicionar Nova Tarefa</h1>
-
+            <!-- Formulário de criação de tarefa usando o método POST-->
             <form action="create.php" method="post">
                 <div class="form-group">
                     <label for="title">Título</label>

@@ -11,7 +11,7 @@ Este projeto envolve o desenvolvimento de um Gerenciador de Tarefas básico, imp
 
 ## Tecnologias Utilizadas
 
-- **Backend:** PHP 8.x
+- **Backend:** PHP
 - **Banco de Dados:** MySQL
 - **Frontend:** HTML5, CSS3
 - **Conexão com DB:** PDO (PHP Data Objects)

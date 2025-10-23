@@ -5,11 +5,12 @@ require_once 'connection.php';
 // pega o ID da tarefa da URL
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
-// verifica se o ID é válido
+// verifica se o ID é true ou seja, válido
 if($id){   
     try{
         // prepara a instrução SQL para deletar
         // a parte "WHERE id = :id" é necessária para não exluir todas as tarefas
+        // do Banco de Dados
         $sql = "DELETE FROM tasks WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         
@@ -32,5 +33,4 @@ if($id){
         header("Location: index.php");
         exit();
     }
-
 ?>

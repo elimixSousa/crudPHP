@@ -10,7 +10,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Pega os dados do formulário
     $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
-    $title = trim($_POST['title']); // trim() remove espaços em branco no início e fim
+    $title = trim($_POST['title']); // trim() remove espaços em branco no início e no fim
     $description = trim($_POST['description']);
 
     // Validação simples: verifica se o ID e o título não estão vazios
